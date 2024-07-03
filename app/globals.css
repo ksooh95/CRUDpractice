@@ -1,0 +1,309 @@
+/* http://meyerweb.com/eric/tools/css/reset/ */
+/* reset css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol,
+ul {
+    list-style: none;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 추가 요소 초기화 */
+button,
+input,
+select,
+textarea {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    border-radius: 0;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+input[type='search'] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    overflow: auto;
+    resize: none;
+}
+
+fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: inherit;
+}
+/* 메인페이지 */
+.main {
+}
+.container {
+    width: 100%;
+    max-width: 1330px;
+    display: block;
+    padding: 0 15px;
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+.btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+.btn_wrap a {
+    display: block;
+    font-size: 14px;
+    border: 1px solid #333;
+    padding: 5px;
+}
+.btn_wrap button {
+    display: block;
+    font-size: 14px;
+    border: 1px solid #333;
+    padding: 5px 12px;
+}
+.btn_wrap a:hover {
+    background: #333;
+    color: #fff;
+}
+.board {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.board .bo_head {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+}
+.board .bo_head span {
+    display: block;
+    border: 1px solid #333;
+    margin-right: -1px;
+    padding: 10px;
+    font-weight: 800;
+    background: #987862;
+    color: #fff;
+    font-size: 18px;
+}
+.board .bo_head span.boh_1 {
+    width: 10%;
+}
+.board .bo_head span.boh_2 {
+    width: 60%;
+}
+.board .bo_head span.boh_3 {
+    width: 15%;
+}
+.board .bo_head span.boh_4 {
+    width: 15%;
+}
+.board .bo_body a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    text-decoration: none;
+}
+
+.board .bo_body a span {
+    border: 1px solid #333;
+    border-top: 0;
+    margin-right: -1px;
+    padding: 10px;
+}
+.board .bo_body a:hover span {
+    background: #999;
+}
+.board .bo_body span.bob_1 {
+    width: 10%;
+}
+.board .bo_body span.bob_2 {
+    width: 60%;
+}
+.board .bo_body span.bob_3 {
+    width: 15%;
+}
+.board .bo_body span.bob_4 {
+    width: 15%;
+}
+
+.write {
+    margin: 100px 0;
+    display: block;
+    width: 100%;
+}
+
+.write .session {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    gap: 12px;
+}
+.write .session input {
+    display: block;
+    border: 1px solid #cecdce;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+.write .write_body {
+    display: block;
+    margin-top: 30px;
+}
+.write .write_body input {
+    display: block;
+    border: 1px solid #cecdce;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    width: 70%;
+}
+.write .write_body textarea {
+    resize: none;
+    display: block;
+    border: 1px solid #cecdce;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    width: 70%;
+    margin-top: 15px;
+    height: 300px;
+}
