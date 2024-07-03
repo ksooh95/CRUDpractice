@@ -21,18 +21,8 @@ const list = () => {
 
         listFetchData();
     }, []);
-
-    console.log('list : ', list);
-
     return (
-        <div className="bo_body">
-            <Link href="/">
-                <span className="bob_1">1</span>
-                <span className="bob_2">제목</span>
-                <span className="bob_3">작성자</span>
-                <span className="bob_4">작성일</span>
-            </Link>
-        </div>
+       
     );
 };
 
