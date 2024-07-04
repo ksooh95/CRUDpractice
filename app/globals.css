@@ -256,12 +256,19 @@ a:visited {
 }
 .board .bo_body span.bob_1 {
     width: 10%;
+    text-align: center;
 }
 .board .bo_body span.bob_2 {
     width: 60%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .board .bo_body span.bob_3 {
     width: 15%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 .board .bo_body span.bob_4 {
     width: 15%;
@@ -306,4 +313,38 @@ a:visited {
     width: 70%;
     margin-top: 15px;
     height: 300px;
+}
+.detail {
+    padding: 150px 0;
+}
+.detail_content {
+    width: 100%;
+    margin: 0 auto;
+}
+.detail_content .d_title {
+    margin-bottom: 10px;
+}
+.detail_content .d_date {
+    margin-bottom: 5px;
+}
+.detail_content .d_name {
+    margin-bottom: 30px;
+}
+.detail_content .d_txt {
+}
+
+.detail .btn_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.detail .btn_wrap button:hover {
+    background: #333;
+    color: #fff;
+}
+.detail .btn_wrap button.del_btn {
+    background: darkred;
+    color: #fff;
+    border: 0;
 }

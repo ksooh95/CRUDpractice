@@ -23,7 +23,9 @@ export default function Main() {
         listFetchData();
     }, []);
 
-    console.log('list :', list);
+    // console.log(list[3]?.date.split('T')[0]);
+
+    // console.log('list :', list);
     return (
         <div className="main">
             <div className="container">
@@ -35,14 +37,16 @@ export default function Main() {
                         <span className="boh_4">작성일</span>
                     </div>
                     {list?.map((e: any, i: number) => {
-                        <div className="bo_body" key={i}>
-                            <Link href="/">
-                                <span className="bob_1">{e.title}</span>
-                                <span className="bob_2">제목</span>
-                                <span className="bob_3">작성자</span>
-                                <span className="bob_4">작성일</span>
-                            </Link>
-                        </div>;
+                        return (
+                            <div className="bo_body" key={i}>
+                                <Link href={`/detail/${e._id}`}>
+                                    <span className="bob_1">{i}</span>
+                                    <span className="bob_2">{e.title}</span>
+                                    <span className="bob_3">{e.nickname}</span>
+                                    <span className="bob_4">{e?.date?.split('T')[0]}</span>
+                                </Link>
+                            </div>
+                        );
                     })}
                     <div className="btn_wrap">
                         <Link href="/write">글작성</Link>
