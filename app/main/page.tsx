@@ -7,8 +7,7 @@ import React, { useEffect, useState } from 'react';
 export default function Main() {
     const [list, setList] = useState<any[]>([]);
     const [searchTitle, setSearchTitle] = useState<string>('');
-    const [searchList, setSearchList] = useState<any[]>([]);
-
+    
     useEffect(() => {
         const listFetchData = async () => {
             try {
@@ -38,7 +37,7 @@ export default function Main() {
         }
     };
 
-    console.log(searchList);
+    console.log(list);
     return (
         <div className="main">
             <div className="container">
@@ -79,6 +78,7 @@ export default function Main() {
                             </div>
                         );
                     })}
+                    {}
                     <div className="btn_wrap">
                         <Link href="/write">글작성</Link>
                     </div>
