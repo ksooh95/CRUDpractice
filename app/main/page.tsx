@@ -5,7 +5,9 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 
 export default function Main() {
-    const [list, setList] = useState<any>([]);
+    const [list, setList] = useState<any[]>([]);
+    const [searchTitle, setSearchTitle] = useState<string>('');
+    const [searchList, setSearchList] = useState<any[]>([]);
 
     useEffect(() => {
         const listFetchData = async () => {
@@ -23,12 +25,41 @@ export default function Main() {
         listFetchData();
     }, []);
 
-    // console.log(list[3]?.date.split('T')[0]);
+    const searchBtn = async () => {
+        try {
+            const response = await fetch(`/api/post/search?title=${searchTitle}`, {
+                method: 'GET',
+            });
+            const data = await response.json();
+            setList(data);
+            console.log(data);
+        } catch (error) {
+            console.log('error :', error);
+        }
+    };
 
-    // console.log('list :', list);
+    console.log(searchList);
     return (
         <div className="main">
             <div className="container">
+                <div className="search">
+                    <input
+                        type="text"
+                        onChange={(e) => {
+                            setSearchTitle(e.currentTarget.value);
+                        }}
+                        placeholder="검색어를 입력해주세요"
+                        value={searchTitle}
+                    />
+                    <button
+                        onClick={() => {
+                            searchBtn();
+                            console.log('asd');
+                        }}
+                    >
+                        검색
+                    </button>
+                </div>
                 <div className="board">
                     <div className="bo_head">
                         <span className="boh_1">번호</span>

@@ -346,3 +346,23 @@ a:visited {
     color: #fff;
     border: 0;
 }
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 100px;
+}
+.search input {
+    width: 80%;
+    border:1px solid #333;
+    padding: 10px; box-sizing: border-box;
+}
+.search button {
+    width: 15%;
+    border:1px solid #333;
+    padding: 12px 10px;
+    box-sizing: border-box;
+}
