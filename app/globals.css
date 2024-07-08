@@ -357,12 +357,65 @@ a:visited {
 }
 .search input {
     width: 80%;
-    border:1px solid #333;
-    padding: 10px; box-sizing: border-box;
+    border: 1px solid #333;
+    padding: 10px;
+    box-sizing: border-box;
 }
 .search button {
     width: 15%;
-    border:1px solid #333;
+    border: 1px solid #333;
     padding: 12px 10px;
     box-sizing: border-box;
+}
+
+.re_wrap {
+    margin-top: 30px;
+}
+.re_wrap .re_write {
+    margin-bottom: 15px;
+}
+.re_wrap .re_write input {
+    display: block;
+}
+.re_wrap .re_write input.rename_input {
+    display: block;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+}
+.re_wrap .re_write input.retxt_input {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    margin-top: 15px;
+    width: 70%;
+}
+.re_wrap .re_write button {
+    background: #333;
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+.re_wrap .re_list {
+    display: block;
+    margin-top: 30px;
+}
+.re_wrap .re_list li {
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+.re_wrap .re_list li:first-child {
+    border-top: 1px solid #ddd;
+}
+.re_wrap .re_list li span {
+}
+.re_wrap .re_list li span.re1 {
+    width: 10%;
+}
+.re_wrap .re_list li span.re2 {
+    width: 85%;
 }
