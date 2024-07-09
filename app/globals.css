@@ -411,11 +411,22 @@ a:visited {
 .re_wrap .re_list li:first-child {
     border-top: 1px solid #ddd;
 }
-.re_wrap .re_list li span {
-}
+
 .re_wrap .re_list li span.re1 {
     width: 10%;
 }
 .re_wrap .re_list li span.re2 {
     width: 85%;
 }
+
+
+.re_wrap .re_list li input {
+    display: block;
+    border:1px solid #333;margin-left: 15px;margin-right: 15px;
+}
+.re_wrap .re_list li input.re_rename {
+}
+.re_wrap .re_list li input.re_retxt {
+}
+
+
