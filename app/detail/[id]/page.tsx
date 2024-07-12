@@ -11,6 +11,14 @@ export default function Detail() {
     const id: any = params?.id;
     const router = useRouter();
 
+    const [re, setRe] = useState<any>();
+    const [reName, setReName] = useState<string | number>();
+    const [reList, setReList] = useState<any>();
+
+    const [rereName, setReReName] = useState<string | number>();
+    const [rereTxt, setReReTxt] = useState<any>();
+
+    //디테일 데이터 가져오는 fetch
     useEffect(() => {
         const detailFetchData = async () => {
             try {
@@ -27,6 +35,7 @@ export default function Detail() {
         detailFetchData();
     }, []);
 
+    //삭제하기 버튼
     const deleteBtn = async () => {
         try {
             const response = await fetch(`/api/post/delete?id=${id}`, {
@@ -43,7 +52,61 @@ export default function Detail() {
         }
     };
 
+    //댓글 작성 버튼
+    const reBtn = async () => {
+        try {
+            const response = await fetch('/api/post/re', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ postid: id, name: reName, text: re }),
+            });
+            if (response.ok) {
+                console.log('댓글 작성 완료~!');
+            } else {
+                console.log('댓글 작성 실패');
+            }
+        } catch (error) {
+            console.log('error :', error);
+        }
+    };
+
+    //답글작성 버튼
+    const rereBtn = async (reId: any) => {
+        try {
+            const response = await fetch(`/api/post/re2?reid=${reId}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ reInfo: { rename: rereName, retxt: rereTxt } }),
+            });
+            if (response.ok) {
+                console.log('댓글 작성 완료~!');
+            } else {
+                console.log('댓글 작성 실패');
+            }
+        } catch (error) {
+            console.log('error :', error);
+        }
+    };
+
+    //댓글 리스트 가져오기
+    useEffect(() => {
+        const reFetchData = async () => {
+            try {
+                const response = await fetch(`/api/post/relist?postid=${id}`, {
+                    method: 'GET',
+                });
+                const data = await response.json();
+                setReList(data);
+            } catch (error) {
+                console.log('err :', error);
+            }
+        };
+
+        reFetchData();
+    }, []);
+
     console.log('detail :', detail);
+    console.log('댓글목록 :', reList);
 
     return (
         <div className="detail">
@@ -66,6 +129,67 @@ export default function Detail() {
                     >
                         삭제
                     </button>
+                </div>
+                <div className="re_wrap">
+                    <div className="re_write">
+                        <input
+                            type="text"
+                            placeholder="닉네임"
+                            className="rename_input"
+                            onChange={(e) => {
+                                setReName(e.currentTarget.value);
+                            }}
+                        />
+                        <input
+                            type="text"
+                            placeholder="내용"
+                            className="retxt_input "
+                            onChange={(e) => {
+                                setRe(e.currentTarget.value);
+                            }}
+                        />
+                        <button
+                            type="button"
+                            onClick={() => {
+                                reBtn();
+                            }}
+                        >
+                            댓글작성
+                        </button>
+                    </div>
+                    <ul className="re_list">
+                        {reList?.map((e: any, i: number) => {
+                            return (
+                                <li key={i}>
+                                    <span className="re1">{e?.name}</span>
+                                    <span className="re1">{e?.text}</span>
+                                    <input
+                                        type="text"
+                                        className="re_rename"
+                                        placeholder="닉네임"
+                                        onChange={(e) => {
+                                            setReReName(e.currentTarget.value);
+                                        }}
+                                    />
+                                    <input
+                                        type="text"
+                                        className="re_retxt"
+                                        placeholder="내용"
+                                        onChange={(e) => {
+                                            setReReTxt(e.currentTarget.value);
+                                        }}
+                                    />
+                                    <button
+                                        onClick={() => {
+                                            rereBtn(e?._id);
+                                        }}
+                                    >
+                                        답글작성
+                                    </button>
+                                </li>
+                            );
+                        })}
+                    </ul>
                 </div>
             </div>
         </div>
